@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Emilys+Candy&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Variables institucionales de MINYMU */
+:root {
+    --fondo: #0B0A0F;
+    --tarjetas: #241B33;
+    --principal: #7f4795;
+    --destacado: #9B59B6;
+    --bordes: #6C3483;
+}
+
+/* Base & Scrollbar */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--fondo);
+    color: #ffffff;
+}
+
+/* Personalización de la barra de desplazamiento */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--fondo);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--tarjetas);
+    border: 1px solid var(--bordes);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--principal);
+}
+
+/* ==========================================
+   KEYFRAMES DE ANIMACIÓN LIGERA (SIN LAG)
+   ========================================== */
+
+@keyframes shimmer {
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Elevación profesional en hover de tarjetas */
+.card-hover-effect {
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card-hover-effect:hover {
+    transform: translateY(-4px);
+    border-color: var(--destacado);
+    box-shadow: 0 10px 25px -8px rgba(155, 89, 182, 0.25);
+}
+
+/* Botones con efecto de reflejo brillante */
+.btn-shimmer {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.btn-shimmer::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(60deg,
+            transparent,
+            rgba(255, 255, 255, 0.2),
+            transparent);
+    transform: translateX(-100%);
+}
+
+.btn-shimmer:hover::after {
+    animation: shimmer 1s ease-in-out;
+}
+
+/* Transición suave para textos dinámicos de JS */
+#parrafoSorpresa,
+#resultadoEdad {
+    transition: opacity 0.3s ease;
+}
+
+/* Respetar accesibilidad de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    ::before,
+    ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

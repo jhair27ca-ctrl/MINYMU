@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MINYMU | Plataforma de Adopción y Bienestar Felino</title>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Emilys+Candy&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        fondo: '#0B0A0F',
+                        tarjetas: '#241B33',
+                        principal: '#7f4795',
+                        destacado: '#9B59B6',
+                        bordes: '#6C3483',
+                    },
+                    fontFamily: {
+                        emilys: ['"Emilys Candy"', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Hoja de Estilos Optimizada -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body
+    class="bg-fondo font-sans text-white min-h-screen flex flex-col justify-between antialiased selection:bg-destacado selection:text-white overflow-x-hidden">
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 bg-fondo/90 backdrop-blur-md border-b border-bordes/40 shadow-xl">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#inicio" class="flex items-center gap-3 group">
+                <div
+                    class="w-10 h-10 rounded-xl bg-tarjetas border border-bordes flex items-center justify-center text-destacado group-hover:border-destacado transition-colors shadow-inner">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                        </path>
+                    </svg>
+                </div>
+                <span class="font-emilys text-2xl md:text-3xl tracking-wider text-principal">MINYMU</span>
+            </a>
+
+            <!-- Navigation Menu (Desktop) -->
+            <nav class="hidden md:flex items-center gap-7 text-sm font-medium tracking-wide">
+                <a href="#inicio" class="text-gray-300 hover:text-destacado transition-colors">INICIO</a>
+                <a href="#recomendaciones" class="text-gray-300 hover:text-destacado transition-colors">BENEFICIOS</a>
+                <a href="#cuidados" class="text-gray-300 hover:text-destacado transition-colors">CUIDADOS</a>
+                <a href="#adopcion" class="text-gray-300 hover:text-destacado transition-colors">REFUGIOS</a>
+                <a href="#calculadora" class="text-gray-300 hover:text-destacado transition-colors">EDAD FELINA</a>
+                <a href="#redes" class="text-gray-300 hover:text-destacado transition-colors">COMUNIDAD</a>
+            </nav>
+
+            <!-- CTA Desktop & Botón Menú Móvil -->
+            <div class="flex items-center gap-4">
+                <a href="#adopcion"
+                    class="hidden sm:inline-block bg-principal hover:bg-destacado text-white text-xs md:text-sm font-medium px-5 py-2.5 rounded-full transition-all shadow-md btn-shimmer">
+                    Adoptar Ahora
+                </a>
+                <button id="menuBtn" class="md:hidden text-gray-300 hover:text-white focus:outline-none p-2"
+                    aria-label="Abrir Menú">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menú Desplegable Móvil -->
+        <div id="mobileMenu"
+            class="hidden md:hidden bg-tarjetas/95 border-b border-bordes px-6 py-6 space-y-4 backdrop-blur-lg shadow-2xl">
+            <a href="#inicio" class="block text-gray-200 hover:text-destacado font-medium text-base">INICIO</a>
+            <a href="#recomendaciones"
+                class="block text-gray-200 hover:text-destacado font-medium text-base">BENEFICIOS</a>
+            <a href="#cuidados" class="block text-gray-200 hover:text-destacado font-medium text-base">CUIDADOS</a>
+            <a href="#adopcion" class="block text-gray-200 hover:text-destacado font-medium text-base">REFUGIOS</a>
+            <a href="#calculadora" class="block text-gray-200 hover:text-destacado font-medium text-base">EDAD
+                FELINA</a>
+            <a href="#redes" class="block text-gray-200 hover:text-destacado font-medium text-base">COMUNIDAD</a>
+        </div>
+    </header>
+
+    <!-- Hero Section con Minssu -->
+    <section id="inicio"
+        class="relative overflow-hidden pt-16 pb-24 px-6 border-b border-bordes/30 bg-gradient-to-br from-tarjetas/40 via-fondo to-fondo">
+        <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-principal/10 rounded-full blur-3xl pointer-events-none">
+        </div>
+
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+            <div class="text-center lg:text-left">
+                <span
+                    class="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-tarjetas/80 border border-bordes text-xs font-medium tracking-widest text-destacado mb-6 shadow-sm">
+                    <svg class="w-4 h-4 text-destacado" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                    PLATAFORMA DE ADOPCIÓN & BIENESTAR FELINO
+                </span>
+                <h1
+                    class="font-emilys text-5xl sm:text-6xl md:text-7xl tracking-widest text-principal mb-6 leading-tight drop-shadow-md">
+                    MINYMU
+                </h1>
+                <p class="text-gray-300 text-lg md:text-xl font-light max-w-xl mx-auto lg:mx-0 leading-relaxed mb-8">
+                    Todo lo que necesitas saber para amar, entender y adoptar a un felino responsablemente, conectando
+                    hogares con refugios de toda Latinoamérica.
+                </p>
+                <div class="flex flex-wrap justify-center lg:justify-start gap-4">
+                    <a href="#recomendaciones"
+                        class="bg-principal hover:bg-destacado text-white font-medium px-8 py-3.5 rounded-full transition-all shadow-lg text-sm tracking-wider btn-shimmer">
+                        Explorar Guías
+                    </a>
+                    <a href="#adopcion"
+                        class="bg-tarjetas hover:bg-tarjetas/80 border border-bordes text-gray-200 font-medium px-8 py-3.5 rounded-full transition-all text-sm tracking-wider">
+                        Ver Refugios
+                    </a>
+                </div>
+            </div>
+
+            <!-- Foto de Minssu -->
+            <div class="relative mx-auto w-full max-w-md lg:max-w-lg">
+                <div class="absolute -inset-1 bg-gradient-to-r from-principal to-destacado rounded-3xl blur opacity-30">
+                </div>
+                <div
+                    class="relative w-full h-80 sm:h-96 md:h-[420px] rounded-3xl bg-tarjetas border border-bordes/60 overflow-hidden shadow-2xl group">
+                    <img src="imagenes/Minssu.jpeg" alt="Minssu"
+                        class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-fondo/90 via-transparent to-transparent"></div>
+                    <div
+                        class="absolute bottom-4 left-4 right-4 bg-tarjetas/80 backdrop-blur-md border border-bordes/50 p-3 rounded-2xl flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-destacado animate-pulse"></span>
+                            <span class="text-xs font-semibold text-gray-200">Minssu</span>
+                        </div>
+                        <span
+                            class="text-[10px] text-gray-400 bg-fondo/60 px-2.5 py-1 rounded-full border border-bordes/30 uppercase tracking-wider">Mascota
+                            Oficial</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-6 py-16 w-full flex-grow space-y-28">
+
+        <!-- Sección 1: Beneficios y Botón Sorpresa -->
+        <section id="recomendaciones">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="font-emilys text-3xl md:text-4xl text-principal mb-4 tracking-wide">¿POR QUÉ TENER UN GATO?
+                </h2>
+                <p class="text-gray-400 text-sm md:text-base">Impactos positivos demostrados que un compañero felino
+                    aporta a tu vida diaria.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div
+                    class="bg-gradient-to-b from-tarjetas/70 to-tarjetas/40 backdrop-blur border border-bordes/50 rounded-2xl p-8 shadow-xl flex flex-col justify-between card-hover-effect">
+                    <div>
+                        <div
+                            class="w-12 h-12 rounded-xl bg-fondo/80 flex items-center justify-center text-destacado mb-6 border border-bordes shadow-inner">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-3">Compañía Adaptable</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed">Son mascotas independientes, higiénicas y con
+                            gran capacidad de adaptación a espacios reducidos u hogares modernos.</p>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-gradient-to-b from-tarjetas/70 to-tarjetas/40 backdrop-blur border border-bordes/50 rounded-2xl p-8 shadow-xl flex flex-col justify-between card-hover-effect">
+                    <div>
+                        <div
+                            class="w-12 h-12 rounded-xl bg-fondo/80 flex items-center justify-center text-destacado mb-6 border border-bordes shadow-inner">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-3">Reducción del Estrés</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed">Estudios demuestran que la frecuencia
+                            vibratoria de su ronroneo ayuda a mitigar la ansiedad y estabilizar la presión arterial.</p>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-gradient-to-b from-tarjetas/70 to-tarjetas/40 backdrop-blur border border-bordes/50 rounded-2xl p-8 shadow-xl flex flex-col justify-between card-hover-effect">
+                    <div>
+                        <div
+                            class="w-12 h-12 rounded-xl bg-fondo/80 flex items-center justify-center text-destacado mb-6 border border-bordes shadow-inner">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-3">Soporte Emocional</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed">Fomentan hábitos saludables, empatía y
+                            responsabilidad cotidiana, brindando un acompañamiento constante en casa.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botón Sorpresa -->
+            <div
+                class="mt-12 bg-tarjetas/40 border border-bordes/60 rounded-2xl p-8 text-center max-w-xl mx-auto shadow-2xl backdrop-blur">
+                <button id="btnSorpresa"
+                    class="bg-principal hover:bg-destacado text-white font-medium px-8 py-3 rounded-full transition-all shadow-lg text-sm tracking-wider cursor-pointer active:scale-95 btn-shimmer mx-auto">
+                    Descubrir Dato Curioso
+                </button>
+                <div id="parrafoSorpresa"
+                    class="mt-6 text-gray-300 text-sm md:text-base min-h-[2.5rem] flex items-center justify-center font-light italic opacity-0 transition-opacity duration-500">
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección 2: Pilares de Cuidado Responsable -->
+        <section id="cuidados">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="font-emilys text-3xl md:text-4xl text-principal mb-4 tracking-wide">PILARES DE CUIDADO
+                    RESPONSABLE</h2>
+                <p class="text-gray-400 text-sm md:text-base">Puntos fundamentales para garantizar el bienestar físico y
+                    emocional de tu mascota.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-tarjetas/40 border border-bordes/50 p-6 rounded-2xl shadow-md card-hover-effect">
+                    <div
+                        class="w-10 h-10 rounded-lg bg-fondo flex items-center justify-center text-destacado mb-4 border border-bordes">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-base font-bold text-white mb-2">Nutrición & Hidratación</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">Alimentación acorde a su etapa vital y fuentes
+                        permanentes de agua fresca.</p>
+                </div>
+                <div class="bg-tarjetas/40 border border-bordes/50 p-6 rounded-2xl shadow-md card-hover-effect">
+                    <div
+                        class="w-10 h-10 rounded-lg bg-fondo flex items-center justify-center text-destacado mb-4 border border-bordes">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-base font-bold text-white mb-2">Salud Preventiva</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">Esquema de vacunación, desparasitación periódica y
+                        revisiones veterinarias.</p>
+                </div>
+                <div class="bg-tarjetas/40 border border-bordes/50 p-6 rounded-2xl shadow-md card-hover-effect">
+                    <div
+                        class="w-10 h-10 rounded-lg bg-fondo flex items-center justify-center text-destacado mb-4 border border-bordes">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-base font-bold text-white mb-2">Enriquecimiento</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">Rascadores, espacios elevados y juguetes
+                        interactivos para su estimulación.</p>
+                </div>
+                <div class="bg-tarjetas/40 border border-bordes/50 p-6 rounded-2xl shadow-md card-hover-effect">
+                    <div
+                        class="w-10 h-10 rounded-lg bg-fondo flex items-center justify-center text-destacado mb-4 border border-bordes">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-base font-bold text-white mb-2">Higiene & Arenero</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">Mantenimiento diario de su bandeja sanitaria en
+                        áreas tranquilas y ventiladas.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Banner Intermedio -->
+        <section
+            class="relative rounded-3xl overflow-hidden border border-bordes/60 bg-gradient-to-r from-tarjetas via-tarjetas/80 to-tarjetas p-8 md:p-12 shadow-2xl">
+            <div class="relative z-10 max-w-2xl">
+                <span class="text-xs tracking-widest text-destacado uppercase font-semibold block mb-2">Compromiso
+                    Real</span>
+                <h3 class="font-emilys text-3xl md:text-4xl text-white mb-4">¿Listo para cambiar una vida y sumar un
+                    miembro a tu familia?</h3>
+                <p class="text-gray-300 text-sm md:text-base mb-6">La adopción responsable salva vidas. Conoce nuestras
+                    organizaciones aliadas y encuentra a tu compañero ideal hoy mismo.</p>
+                <a href="#adopcion"
+                    class="inline-block bg-principal hover:bg-destacado text-white font-medium px-8 py-3 rounded-full transition-all shadow-md text-sm btn-shimmer">
+                    Ver Refugios Disponibles
+                </a>
+            </div>
+        </section>
+
+        <!-- Sección 3: Refugios Aliados -->
+        <section id="adopcion">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="font-emilys text-3xl md:text-4xl text-principal mb-4 tracking-wide">REFUGIOS DE ADOPCIÓN</h2>
+                <p class="text-gray-400 text-sm md:text-base">Organizaciones verificadas que rescatan, rehabilitan y
+                    promueven la adopción en la región.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-tarjetas/60 border border-bordes/60 rounded-2xl p-8 shadow-xl card-hover-effect">
+                    <h3 class="text-xl font-bold tracking-wider text-destacado mb-6 pb-4 border-b border-bordes/40">PERÚ
+                    </h3>
+                    <ul class="space-y-4">
+                        <li>
+                            <a href="https://adoptamiu.org/" target="_blank"
+                                class="text-gray-300 hover:text-destacado transition-colors flex items-center justify-between text-sm group">
+                                <span>Adopt Miau</span>
+                                <svg class="w-4 h-4 text-gray-500 group-hover:text-destacado group-hover:translate-x-1 transition-all"
+                                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.facebook.com/share/g/1K5wt8C5Nv/" target="_blank"
+                                class="text-gray-300 hover:text-destacado transition-colors flex items-center justify-between text-sm group">
+                                <span>Adopción Lima</span>
+                                <svg class="w-4 h-4 text-gray-500 group-hover:text-destacado group-hover:translate-x-1 transition-all"
+                                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-tarjetas/60 border border-bordes/60 rounded-2xl p-8 shadow-xl card-hover-effect">
+                    <h3 class="text-xl font-bold tracking-wider text-destacado mb-6 pb-4 border-b border-bordes/40">
+                        COLOMBIA</h3>
+                    <ul class="space-y-4">
+                        <li>
+                            <a href="https://adoptarcolombia.com/solicitud-de-adopcion/" target="_blank"
+                                class="text-gray-300 hover:text-destacado transition-colors flex items-center justify-between text-sm group">
+                                <span>Solicitud Adoptcol</span>
+                                <svg class="w-4 h-4 text-gray-500 group-hover:text-destacado group-hover:translate-x-1 transition-all"
+                                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/adoptarcolombia/?hl=es" target="_blank"
+                                class="text-gray-300 hover:text-destacado transition-colors flex items-center justify-between text-sm group">
+                                <span>Adoptar Colombia</span>
+                                <svg class="w-4 h-4 text-gray-500 group-hover:text-destacado group-hover:translate-x-1 transition-all"
+                                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-tarjetas/60 border border-bordes/60 rounded-2xl p-8 shadow-xl card-hover-effect">
+                    <h3 class="text-xl font-bold tracking-wider text-destacado mb-6 pb-4 border-b border-bordes/40">
+                        CHILE</h3>
+                    <ul class="space-y-4">
+                        <li>
+                            <a href="https://petfi.io/adoptar/gatos" target="_blank"
+                                class="text-gray-300 hover:text-destacado transition-colors flex items-center justify-between text-sm group">
+                                <span>Pet Fi</span>
+                                <svg class="w-4 h-4 text-gray-500 group-hover:text-destacado group-hover:translate-x-1 transition-all"
+                                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://laspatitasdesofia.cl/" target="_blank"
+                                class="text-gray-300 hover:text-destacado transition-colors flex items-center justify-between text-sm group">
+                                <span>F.L.P.D.S</span>
+                                <svg class="w-4 h-4 text-gray-500 group-hover:text-destacado group-hover:translate-x-1 transition-all"
+                                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección 4: Calculadora de Edad Felina -->
+        <section id="calculadora"
+            class="bg-tarjetas/40 border border-bordes/60 rounded-3xl p-8 md:p-12 shadow-2xl max-w-3xl mx-auto backdrop-blur card-hover-effect">
+            <div class="text-center mb-8">
+                <h2 class="font-emilys text-2xl md:text-3xl text-principal mb-3">EQUIVALENCIA DE EDAD FELINA</h2>
+                <p class="text-gray-400 text-sm">Calcula la edad equivalente de tu gato en años humanos según estándares
+                    veterinarios.</p>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-md mx-auto">
+                <input type="number" id="inputEdadGato" placeholder="Edad de tu gato (ej. 3)" min="0" max="30"
+                    class="bg-fondo border border-bordes rounded-full px-6 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-destacado w-full text-center">
+                <button id="btnCalcularEdad"
+                    class="bg-principal hover:bg-destacado text-white font-medium px-8 py-3 rounded-full transition-all text-sm w-full sm:w-auto whitespace-nowrap shadow-md cursor-pointer active:scale-95 btn-shimmer">
+                    Calcular
+                </button>
+            </div>
+            <div id="resultadoEdad" class="mt-6 text-center text-destacado font-medium text-lg min-h-[2rem]"></div>
+        </section>
+
+        <!-- Sección 5: REDES SOCIALES / COMUNIDAD -->
+        <section id="redes" class="max-w-4xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <h2 class="font-emilys text-3xl md:text-4xl text-principal mb-4 tracking-wide">NUESTRA COMUNIDAD</h2>
+                <p class="text-gray-400 text-sm md:text-base">Conéctate con nosotros en plataformas oficiales para ver
+                    casos de rescate en tiempo real, tips diarios y nuestra gran comunidad amante de los gatos.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- TikTok -->
+                <a href="https://www.tiktok.com/@jhairc55?is_from_webapp=1&sender_device=pc" target="_blank"
+                    class="bg-gradient-to-br from-tarjetas/80 to-tarjetas/40 border border-bordes/60 p-8 rounded-3xl hover:border-destacado transition-all duration-300 shadow-2xl flex items-center justify-between group relative overflow-hidden card-hover-effect">
+                    <div
+                        class="absolute -right-10 -bottom-10 w-32 h-32 bg-destacado/10 rounded-full blur-xl group-hover:scale-150 transition-transform">
+                    </div>
+                    <div class="flex items-center gap-5 relative z-10">
+                        <div
+                            class="w-16 h-16 rounded-2xl bg-fondo border border-bordes flex items-center justify-center p-3.5 shadow-inner group-hover:scale-105 transition-transform text-destacado">
+                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <span
+                                    class="text-lg font-bold text-white group-hover:text-destacado transition-colors">TikTok
+                                    Oficial</span>
+                                <span
+                                    class="text-[10px] bg-principal/30 text-destacado px-2 py-0.5 rounded-full border border-bordes/50">@jhairc55</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="w-10 h-10 rounded-full bg-fondo border border-bordes flex items-center justify-center text-destacado group-hover:bg-principal group-hover:text-white transition-all relative z-10">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/c.jhairc?stkn=cDZrcGlqNXVsYjho" target="_blank"
+                    class="bg-gradient-to-br from-tarjetas/80 to-tarjetas/40 border border-bordes/60 p-8 rounded-3xl hover:border-destacado transition-all duration-300 shadow-2xl flex items-center justify-between group relative overflow-hidden card-hover-effect">
+                    <div
+                        class="absolute -right-10 -bottom-10 w-32 h-32 bg-destacado/10 rounded-full blur-xl group-hover:scale-150 transition-transform">
+                    </div>
+                    <div class="flex items-center gap-5 relative z-10">
+                        <div
+                            class="w-16 h-16 rounded-2xl bg-fondo border border-bordes flex items-center justify-center p-3.5 shadow-inner group-hover:scale-105 transition-transform text-destacado">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <span
+                                    class="text-lg font-bold text-white group-hover:text-destacado transition-colors">Instagram</span>
+                                <span
+                                    class="text-[10px] bg-principal/30 text-destacado px-2 py-0.5 rounded-full border border-bordes/50">@c.jhairc</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="w-10 h-10 rounded-full bg-fondo border border-bordes flex items-center justify-center text-destacado group-hover:bg-principal group-hover:text-white transition-all relative z-10">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="derechos" class="bg-tarjetas/80 border-t border-bordes/40 py-8 text-center text-sm text-gray-400 mt-20">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2">
+                <span class="font-emilys text-principal text-lg">MINYMU</span>
+                <span>— Plataforma de Rescate y Bienestar Felino</span>
+            </div>
+            <div>
+                <p>&copy; 2026 - 2027 | Todos los derechos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Vinculación del Script -->
+    <script src="script.js"></script>
+</body>
+
+</html>
